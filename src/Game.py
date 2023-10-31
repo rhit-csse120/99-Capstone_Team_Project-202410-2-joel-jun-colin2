@@ -22,7 +22,7 @@ from Asteroid import Asteroid
 class Game:
     def __init__(self, screen: pygame.Surface):
         self.screen = screen
-        self.asteroid = Asteroid(screen, 200, 10)
+        self.asteroid = Asteroid(screen)
         # TODO: Store whatever YOUR game needs, perhaps something like this:
         #     self.missiles = Missiles(self.screen)
         #     self.fighter = Fighter(self.screen, self.missiles)
@@ -34,6 +34,7 @@ class Game:
         #     self.fighter.draw()
 
     def run_one_cycle(self):
+        self.asteroid.move()
         """ All objects that do something at each cycle: ask them to do it. """
         # TODO: Use something like the following, but for objects in YOUR game:
         #     self.missiles.move()
