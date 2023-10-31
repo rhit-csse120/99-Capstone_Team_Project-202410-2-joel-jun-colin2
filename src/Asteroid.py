@@ -6,7 +6,7 @@ class Asteroid:
         self.screen = screen
         self.speed = random.randint(1, 10)
         self.image = pygame.image.load("../media/Asteroid_S.gif")
-        self.x = screen.get_width() - 100
+        self.x = screen.get_width()
         self.y = random.randint(0, screen.get_height())
         self.off_screen = False
 
