@@ -23,19 +23,19 @@ class Ship:
         self.screen.blit(self.image,(self.x,self.y))
 
     def move_left(self):
-        if self.x > self.image.get_width() // 2:
+        if self.x > 0:
             self.x -= self.speed
 
     def move_right(self):
-        if self.x < self.screen.get_width() - (self.image.get_width() // 2):
+        if self.x < self.screen.get_width() - self.image.get_width():
             self.x += self.speed
 
     def move_up(self):
-        if self.y > self.image.get_height() // 2:
+        if self.y > 0:
             self.y -= self.speed
 
     def move_down(self):
-        if self.y < self.screen.get_height() - (self.image.get_height() // 2):
+        if self.y < self.screen.get_height() - self.image.get_height():
             self.y += self.speed
 
     def is_hit_by(self, asteroid: Asteroid):
