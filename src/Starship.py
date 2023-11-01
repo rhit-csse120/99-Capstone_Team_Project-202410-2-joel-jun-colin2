@@ -1,7 +1,7 @@
 # author: Joel
 
 import pygame
-import Asteroid from Asteroid
+from Asteroid import Asteroid
 
 class Ship:
 
