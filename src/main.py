@@ -8,9 +8,9 @@ It:
       -- Asks the Game object to run one cycle.
       -- Asks the View object to draw everything.
 
-Team members:
+Team members: Joel, Jun, Colin
 """
-# TODO: Put the names of your entire team in the above doc-string.
+# DONE: Put the names of your entire team in the above doc-string.
 
 import pygame
 from Game import Game
@@ -20,14 +20,14 @@ from View import View
 
 def main():
     pygame.init()
-    pygame.display.set_caption("My Game Name")  # TODO: Put your own game name
-    screen = pygame.display.set_mode((640, 650))  # TODO: Choose your own size
+    pygame.display.set_caption("Jun's Space Odyssey")  # DONE: Put your own game name
+    screen = pygame.display.set_mode((1200, 650))  # DONE: Choose your own size
     clock = pygame.time.Clock()
     game = Game(screen)  # the Model
     view = View(screen, game)  # the View
     controller = Controller(game)  # the Controller
 
-    frame_rate = 60  # TODO: Choose your own frame rate
+    frame_rate = 60  # DONE: Choose your own frame rate
 
     while True:
         clock.tick(frame_rate)

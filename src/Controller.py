@@ -4,9 +4,9 @@ Its   get_and_handle_events   method is called repeatedly by the main game loop.
 At each call, it gets and handles whatever event(s) occurred,
 typically by asking the various objects of the Game to do things.
 
-Team members:
+Team members: Joel, Colin, Jun
 """
-# TODO: Put the names of your entire team in the above doc-string.
+# DONE: Put the names of your entire team in the above doc-string.
 
 import pygame
 import sys
@@ -28,9 +28,15 @@ class Controller:
 
         pressed_keys = pygame.key.get_pressed()
 
-        # TODO: Use code like the following, but for YOUR Game objects.
-        #     if pressed_keys[pygame.K_LEFT]:
-        #         self.game.fighter.move_left()
+        if pressed_keys[pygame.K_LEFT]:
+            self.game.Ship.move_left()
+        if pressed_keys[pygame.K_RIGHT]:
+            self.game.Ship.move_right()
+        if pressed_keys[pygame.K_UP]:
+            self.game.Ship.move_up()
+        if pressed_keys[pygame.K_DOWN]:
+            self.game.Ship.move_down()
+
 
     def exit_if_time_to_quit(self):
         for event in self.events:
