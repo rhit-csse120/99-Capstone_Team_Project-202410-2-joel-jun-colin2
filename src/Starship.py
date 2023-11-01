@@ -1,7 +1,7 @@
 # author: Joel
 
 import pygame
-
+import Asteroid from Asteroid
 
 class Ship:
 
@@ -16,6 +16,7 @@ class Ship:
         self.y = self.screen.get_height() // 2
 
         self.speed = speed
+        self.explosion_sound = pygame.mixer.Sound("../media/explosion.wav")
         self.has_exploded = False
 
     def draw_self(self):
@@ -37,8 +38,14 @@ class Ship:
         if self.y < self.screen.get_height() - (self.image.get_height() // 2):
             self.y += self.speed
 
-    def is_hit_by(self):
-        pass
+    def is_hit_by(self, asteroid: Asteroid):
+        # Function will return True if an asteroid and the ship's rectangle collide
+        ship_rect = pygame.Rect(self.x, self.y, self.image.get_width(),self.image.get_height())
+        asteroid_rect = pygame.Rect(asteroid.x, asteroid.y,
+                                    asteroid.image.get_width(), asteroid.image.get_height())
+        return ship_rect.colliderect(asteroid_rect)
 
     def explode(self):
-        pass
+        # Game over
+        self.explosion_sound.play()
+        self.has_exploded = True
