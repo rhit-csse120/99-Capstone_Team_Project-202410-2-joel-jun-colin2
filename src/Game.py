@@ -12,6 +12,9 @@ Team members:
 # TODO: Put the names of your entire team in the above doc-string.
 
 import pygame
+from Asteroid import Asteroid
+from Asteroids import Asteroids
+
 # TODO: Put each class in its own module, using the same name for both.
 #  Then use statements like the following, but for YOUR classes in YOUR modules:
 #     from Fighter import Fighter
@@ -20,16 +23,21 @@ import pygame
 class Game:
     def __init__(self, screen: pygame.Surface):
         self.screen = screen
+        # self.asteroid = Asteroid(screen)
+        self.asteroids = Asteroids(screen)
         # TODO: Store whatever YOUR game needs, perhaps something like this:
         #     self.missiles = Missiles(self.screen)
         #     self.fighter = Fighter(self.screen, self.missiles)
 
     def draw_game(self):
+        self.asteroids.draw()
         """ Ask all the objects in the game to draw themselves. """
         # TODO: Use something like the following, but for objects in YOUR game:
         #     self.fighter.draw()
 
     def run_one_cycle(self):
+        self.asteroids.move()
+        self.asteroids.remove_asteroid()
         """ All objects that do something at each cycle: ask them to do it. """
         # TODO: Use something like the following, but for objects in YOUR game:
         #     self.missiles.move()
