@@ -4,7 +4,7 @@ import pygame
 class FuelCell:
     def __init__(self, screen, speed, x=100, y=100):
         self.screen = screen
-        self.image = pygame.image.load()
+        self.image = pygame.image.load("../media/FuelCell.gif")
         self.width = self.image.get_width()
         self.height = self.image.get_height()
         self.x = x
