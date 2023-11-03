@@ -16,6 +16,7 @@ from Asteroid import Asteroid
 from Asteroids import Asteroids
 from Starship import Ship
 from FuelCells import FuelCells
+from FuelGauge import FuelGauge
 import sys
 
 # DONE: Put each class in its own module, using the same name for both.
@@ -30,6 +31,7 @@ class Game:
         self.asteroids = Asteroids(screen)
         self.Ship = Ship(screen)
         self.fuelCells = FuelCells(screen, self.Ship)
+        # self.gauge = FuelGauge(screen)
 
         # DONE: Store whatever YOUR game needs, perhaps something like this:
         #     self.missiles = Missiles(self.screen)
@@ -39,6 +41,7 @@ class Game:
         self.asteroids.draw()
         self.Ship.draw_self()
         self.fuelCells.draw()
+        # self.gauge.draw()
 
         """ Ask all the objects in the game to draw themselves. """
         # DONE: Use something like the following, but for objects in YOUR game:
