@@ -26,11 +26,13 @@ def main():
     game = Game(screen)  # the Model
     view = View(screen, game)  # the View
     controller = Controller(game)  # the Controller
+    time_count = 0
 
     frame_rate = 60  # DONE: Choose your own frame rate
 
     while True:
         clock.tick(frame_rate)
+        time_count += 1/60
         controller.get_and_handle_events()
         game.run_one_cycle()
         view.draw_everything()

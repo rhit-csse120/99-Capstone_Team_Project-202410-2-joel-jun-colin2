@@ -16,7 +16,6 @@ from Asteroid import Asteroid
 from Asteroids import Asteroids
 from Starship import Ship
 from FuelCells import FuelCells
-# from FuelGauge import FuelGauge
 
 # DONE: Put each class in its own module, using the same name for both.
 #  Then use statements like the following, but for YOUR classes in YOUR modules:
@@ -29,7 +28,6 @@ class Game:
         # self.asteroid = Asteroid(screen)
         self.asteroids = Asteroids(screen)
         self.Ship = Ship(screen)
-        # self.gauge = FuelGauge(screen)
         self.fuelCells = FuelCells(screen, self.Ship)
 
         # DONE: Store whatever YOUR game needs, perhaps something like this:
