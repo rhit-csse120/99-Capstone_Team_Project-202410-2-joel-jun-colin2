@@ -16,6 +16,7 @@ from Asteroid import Asteroid
 from Asteroids import Asteroids
 from Starship import Ship
 from FuelCells import FuelCells
+import sys
 
 # DONE: Put each class in its own module, using the same name for both.
 #  Then use statements like the following, but for YOUR classes in YOUR modules:
@@ -44,7 +45,23 @@ class Game:
         #     self.fighter.draw()
 
     def game_over(self):
-        pass
+        clock = pygame.time.Clock()
+        game_over_image = pygame.image.load("../media/Game_Over_Screen-1.png")
+        # size = (500,self.screen.get_height())
+        # game_over_image = pygame.transform.scale(game_over_image, size)
+
+        while True:
+            clock.tick(60)
+            for event in pygame.event.get():
+                if event.type == pygame.K_SPACE:
+                    print("Restart!")
+                    return
+                if event.type == pygame.QUIT:
+                    sys.exit()
+
+            self.screen.fill((0,0,0))
+            self.screen.blit(game_over_image, (250,250))
+            pygame.display.update()
 
     def run_one_cycle(self):
         self.asteroids.move()
