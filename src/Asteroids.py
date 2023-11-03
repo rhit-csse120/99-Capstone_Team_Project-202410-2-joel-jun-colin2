@@ -8,7 +8,7 @@ class Asteroids:
         self.screen = screen
 
         self.list_of_asteroids = []
-        for k in range(random.randint(5, 12)):
+        for k in range(random.randint(9, 14)):
             self.list_of_asteroids.append(Asteroid(screen))
 
     def draw(self):
@@ -24,3 +24,4 @@ class Asteroids:
             asteroid = self.list_of_asteroids[k]
             if asteroid.off_screen:
                 del self.list_of_asteroids[k]
+                self.list_of_asteroids.append(Asteroid(self.screen))
