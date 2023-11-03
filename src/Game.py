@@ -15,6 +15,7 @@ import pygame
 from Asteroid import Asteroid
 from Asteroids import Asteroids
 from Starship import Ship
+from FuelCells import FuelCells
 
 # DONE: Put each class in its own module, using the same name for both.
 #  Then use statements like the following, but for YOUR classes in YOUR modules:
@@ -27,6 +28,7 @@ class Game:
         # self.asteroid = Asteroid(screen)
         self.asteroids = Asteroids(screen)
         self.Ship = Ship(screen)
+        self.fuelCells = FuelCells(screen, self.Ship)
 
         # DONE: Store whatever YOUR game needs, perhaps something like this:
         #     self.missiles = Missiles(self.screen)
@@ -35,6 +37,7 @@ class Game:
     def draw_game(self):
         self.asteroids.draw()
         self.Ship.draw_self()
+        self.fuelCells.draw()
 
         """ Ask all the objects in the game to draw themselves. """
         # DONE: Use something like the following, but for objects in YOUR game:
@@ -46,6 +49,8 @@ class Game:
     def run_one_cycle(self):
         self.asteroids.move()
         self.asteroids.remove_asteroid()
+        self.fuelCells.move()
+        self.fuelCells.remove_charged_cells()
 
         """ All objects that do something at each cycle: ask them to do it. """
         # DONE: Use something like the following, but for objects in YOUR game:
