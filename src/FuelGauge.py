@@ -1,5 +1,6 @@
 import pygame
 
+
 class FuelGauge:
     def __init__(self, screen):
         self.screen = screen
@@ -8,7 +9,5 @@ class FuelGauge:
         self.textRect = self.text.get_rect()
         self.textRect.center = (self.screen.get_width() // 2, 10)
 
-
     def draw(self):
         self.screen.blit(self.text, self.textRect)
-
