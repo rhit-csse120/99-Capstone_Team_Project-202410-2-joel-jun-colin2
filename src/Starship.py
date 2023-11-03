@@ -7,7 +7,7 @@ class Ship:
 
     def __init__(self, screen: pygame.Surface, speed=5):
         self.screen = screen
-        self.image = pygame.image.load("../media/Starship.gif")
+        self.image = pygame.image.load("../media/Starship.png")
         self.width = self.image.get_width()
         self.height = self.image.get_height()
 
