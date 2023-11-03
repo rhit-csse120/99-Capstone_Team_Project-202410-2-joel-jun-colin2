@@ -10,8 +10,8 @@ class FuelCell:
         self.image = pygame.transform.scale(self.image, size)
         self.width = self.image.get_width()
         self.height = self.image.get_height()
-        self.x = random.randint(0, screen.get_width())
-        self.y = random.randint(0, screen.get_height())
+        self.x = random.randint(screen.get_width(), screen.get_width() + 500)
+        self.y = random.randint(0, screen.get_height() - 100)
         self.speed = speed
         self.is_off_the_screen = False
         self.has_consumed = False
