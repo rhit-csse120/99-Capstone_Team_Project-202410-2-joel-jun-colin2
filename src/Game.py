@@ -27,6 +27,7 @@ class Game:
         # self.asteroid = Asteroid(screen)
         self.asteroids = Asteroids(screen)
         self.Ship = Ship(screen)
+        self.time = 0
 
         # DONE: Store whatever YOUR game needs, perhaps something like this:
         #     self.missiles = Missiles(self.screen)
@@ -39,6 +40,12 @@ class Game:
         """ Ask all the objects in the game to draw themselves. """
         # DONE: Use something like the following, but for objects in YOUR game:
         #     self.fighter.draw()
+
+    def draw_start(self):
+        pass
+
+    def game_over(self):
+        pass
 
     def run_one_cycle(self):
         self.asteroids.move()

@@ -20,5 +20,7 @@ class View:
 
     def draw_everything(self):
         self.screen.fill(self.background_color)
+        if self.game.time == 0:
+            pass
         self.game.draw_game()
         pygame.display.update()
