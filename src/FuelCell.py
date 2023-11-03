@@ -6,7 +6,7 @@ class FuelCell:
     def __init__(self, screen, speed):
         self.screen = screen
         self.image = pygame.image.load("../media/FuelCell.gif")
-        size = (120, 120)
+        size = (55, 55)
         self.image = pygame.transform.scale(self.image, size)
         self.width = self.image.get_width()
         self.height = self.image.get_height()
@@ -39,5 +39,7 @@ class FuelCell:
         self.has_charged = True
 
     # def update_score(self):
+
+
 
 
