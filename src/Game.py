@@ -40,6 +40,9 @@ class Game:
         # DONE: Use something like the following, but for objects in YOUR game:
         #     self.fighter.draw()
 
+    def game_over(self):
+        pass
+
     def run_one_cycle(self):
         self.asteroids.move()
         self.asteroids.remove_asteroid()
