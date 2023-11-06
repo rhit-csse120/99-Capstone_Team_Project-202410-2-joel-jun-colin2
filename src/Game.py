@@ -31,7 +31,7 @@ class Game:
         self.asteroids = Asteroids(screen)
         self.Ship = Ship(screen)
         self.fuelCells = FuelCells(screen, self.Ship)
-        # self.gauge = FuelGauge(screen)
+        self.gauge = FuelGauge(screen)
 
         # DONE: Store whatever YOUR game needs, perhaps something like this:
         #     self.missiles = Missiles(self.screen)
@@ -41,7 +41,7 @@ class Game:
         self.asteroids.draw()
         self.Ship.draw_self()
         self.fuelCells.draw()
-        # self.gauge.draw()
+        self.gauge.draw()
 
         """ Ask all the objects in the game to draw themselves. """
         # DONE: Use something like the following, but for objects in YOUR game:
@@ -71,6 +71,7 @@ class Game:
         self.asteroids.remove_asteroid()
         self.fuelCells.move()
         self.fuelCells.remove_charged_cells()
+        self.gauge.update_fuel_level()
 
         """ All objects that do something at each cycle: ask them to do it. """
         # DONE: Use something like the following, but for objects in YOUR game:
