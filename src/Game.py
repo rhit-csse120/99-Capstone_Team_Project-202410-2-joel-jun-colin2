@@ -28,7 +28,7 @@ class Game:
         self.screen = screen
         # self.asteroid = Asteroid(screen)
         self.asteroids = Asteroids(screen)
-        self.Ship = Ship(screen, self.asteroids)
+        self.Ship = Ship(screen)
         self.fuelCells = FuelCells(screen, self.Ship)
 
         # DONE: Store whatever YOUR game needs, perhaps something like this:
@@ -47,14 +47,14 @@ class Game:
     def game_over(self):
         clock = pygame.time.Clock()
         game_over_image = pygame.image.load("../media/Game_Over_Screen-1.png")
-        size = (500, self.screen.get_height())
-        game_over_image = pygame.transform.scale(game_over_image, size)
+        # size = (500,self.screen.get_height())
+        # game_over_image = pygame.transform.scale(game_over_image, size)
 
         while True:
             clock.tick(60)
             for event in pygame.event.get():
                 if event.type == pygame.K_SPACE:
-                    print("Restarting...")
+                    print("Restart!")
                     return
                 if event.type == pygame.QUIT:
                     sys.exit()
@@ -68,7 +68,6 @@ class Game:
         self.asteroids.remove_asteroid()
         self.fuelCells.move()
         self.fuelCells.remove_charged_cells()
-        # self.Ship.is_hit_by()
 
         """ All objects that do something at each cycle: ask them to do it. """
         # DONE: Use something like the following, but for objects in YOUR game:

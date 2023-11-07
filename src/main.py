@@ -37,8 +37,8 @@ def main():
         controller.get_and_handle_events()
         game.run_one_cycle()
         view.draw_everything()
-        if Ship.is_hit_by:
-            game.game_over()
+        # if Ship.is_hit_by:
+        #     game.game_over()
 
 
 main()

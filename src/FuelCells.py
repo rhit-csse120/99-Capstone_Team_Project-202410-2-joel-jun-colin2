@@ -12,7 +12,7 @@ class FuelCells:
         self.screen = screen
         self.fuelCells_list = []
         self.ship = ship
-        self.health = 100
+        self.health = 50
         for k in range(random.randint(5, 7)):
             self.fuelCells_list.append(FuelCell(screen, 5))
 
@@ -38,3 +38,4 @@ class FuelCells:
             fuelCell.is_consumed(self.ship)
             if fuelCell.has_consumed:
                 self.health += 5
+                print(10)
