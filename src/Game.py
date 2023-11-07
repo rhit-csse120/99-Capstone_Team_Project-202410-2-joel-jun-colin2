@@ -31,7 +31,7 @@ class Game:
         self.asteroids = Asteroids(screen)
         self.Ship = Ship(screen)
         self.fuelCells = FuelCells(screen, self.Ship)
-        self.gauge = FuelGauge(screen)
+        self.gauge = FuelGauge(screen, self.fuelCells)
 
         # DONE: Store whatever YOUR game needs, perhaps something like this:
         #     self.missiles = Missiles(self.screen)
@@ -70,8 +70,9 @@ class Game:
         self.asteroids.move()
         self.asteroids.remove_asteroid()
         self.fuelCells.move()
-        self.fuelCells.remove_charged_cells()
         self.gauge.update_fuel_level()
+        self.fuelCells.remove_charged_cells()
+
 
         """ All objects that do something at each cycle: ask them to do it. """
         # DONE: Use something like the following, but for objects in YOUR game:

@@ -1,5 +1,6 @@
 import pygame
 import random
+import time
 
 from pygame.time import set_timer
 
@@ -38,4 +39,5 @@ class FuelCells:
             fuelCell.is_consumed(self.ship)
             if fuelCell.has_consumed:
                 self.health += 5
-                print(10)
+        if time.time() % 2 == 0:
+            self.health -= 10
