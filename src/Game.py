@@ -17,6 +17,7 @@ from Asteroids import Asteroids
 from Starship import Ship
 from FuelCells import FuelCells
 from FuelGauge import FuelGauge
+from Enemy import Enemy
 import sys
 
 # DONE: Put each class in its own module, using the same name for both.
@@ -27,12 +28,11 @@ import sys
 class Game:
     def __init__(self, screen: pygame.Surface):
         self.screen = screen
-        # self.asteroid = Asteroid(screen)
         self.asteroids = Asteroids(screen)
         self.Ship = Ship(screen)
         self.fuelCells = FuelCells(screen, self.Ship)
         self.gauge = FuelGauge(screen, self.fuelCells)
-
+        self.enemy = Enemy(screen, self.Ship)
         # DONE: Store whatever YOUR game needs, perhaps something like this:
         #     self.missiles = Missiles(self.screen)
         #     self.fighter = Fighter(self.screen, self.missiles)
@@ -42,7 +42,7 @@ class Game:
         self.Ship.draw_self()
         self.fuelCells.draw()
         self.gauge.draw()
-
+        self.enemy.draw()
         """ Ask all the objects in the game to draw themselves. """
         # DONE: Use something like the following, but for objects in YOUR game:
         #     self.fighter.draw()
