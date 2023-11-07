@@ -26,12 +26,13 @@ import sys
 
 class Game:
     def __init__(self, screen: pygame.Surface):
+        self.asteroid_field = Asteroids(screen).list_of_asteroids
         self.screen = screen
         # self.asteroid = Asteroid(screen)
         self.asteroids = Asteroids(screen)
         self.Ship = Ship(screen)
         self.fuelCells = FuelCells(screen, self.Ship)
-        self.gauge = FuelGauge(screen)
+        self.gauge = FuelGauge(screen, self.fuelCells)
 
         # DONE: Store whatever YOUR game needs, perhaps something like this:
         #     self.missiles = Missiles(self.screen)
@@ -50,8 +51,8 @@ class Game:
     def game_over(self):
         clock = pygame.time.Clock()
         game_over_image = pygame.image.load("../media/Game_Over_Screen-1.png")
-        # size = (500,self.screen.get_height())
-        # game_over_image = pygame.transform.scale(game_over_image, size)
+        size = (500, self.screen.get_height())
+        game_over_image = pygame.transform.scale(game_over_image, size)
 
         while True:
             clock.tick(60)
@@ -62,8 +63,8 @@ class Game:
                 if event.type == pygame.QUIT:
                     sys.exit()
 
-            self.screen.fill((0,0,0))
-            self.screen.blit(game_over_image, (250,250))
+            self.screen.fill((0, 0, 0))
+            self.screen.blit(game_over_image, (250, 250))
             pygame.display.update()
 
     def run_one_cycle(self):
@@ -72,6 +73,7 @@ class Game:
         self.fuelCells.move()
         self.fuelCells.remove_charged_cells()
         self.gauge.update_fuel_level()
+        self.Ship.is_hit_by(self.asteroid_field)
 
         """ All objects that do something at each cycle: ask them to do it. """
         # DONE: Use something like the following, but for objects in YOUR game:
