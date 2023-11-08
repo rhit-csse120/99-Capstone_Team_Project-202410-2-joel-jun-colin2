@@ -26,10 +26,11 @@ import sys
 
 class Game:
     def __init__(self, screen: pygame.Surface):
-        self.asteroid_field = Asteroids(screen).list_of_asteroids
+        # self.asteroid_field = Asteroids(screen).list_of_asteroids
         self.screen = screen
         # self.asteroid = Asteroid(screen)
         self.asteroids = Asteroids(screen)
+        self.asteroid_field = self.asteroids.list_of_asteroids
         self.Ship = Ship(screen)
         self.fuelCells = FuelCells(screen, self.Ship)
         self.gauge = FuelGauge(screen, self.fuelCells)
@@ -51,20 +52,22 @@ class Game:
     def game_over(self):
         clock = pygame.time.Clock()
         game_over_image = pygame.image.load("../media/Game_Over_Screen-1.png")
-        size = (500, self.screen.get_height())
+        size = (750, self.screen.get_height())
         game_over_image = pygame.transform.scale(game_over_image, size)
 
         while True:
             clock.tick(60)
+            pressed_keys = pygame.key.get_pressed()
             for event in pygame.event.get():
-                if event.type == pygame.K_SPACE:
+                if pressed_keys[pygame.K_SPACE]:
                     print("Restart!")
+                    self.Ship.has_exploded = False
                     return
                 if event.type == pygame.QUIT:
                     sys.exit()
 
             self.screen.fill((0, 0, 0))
-            self.screen.blit(game_over_image, (250, 250))
+            self.screen.blit(game_over_image, (250, 0))
             pygame.display.update()
 
     def run_one_cycle(self):

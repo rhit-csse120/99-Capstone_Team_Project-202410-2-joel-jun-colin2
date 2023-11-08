@@ -47,7 +47,6 @@ class Ship:
             asteroid_rect = pygame.Rect(list_asteroids[i].x, list_asteroids[i].y,
                                     list_asteroids[i].image.get_width(), list_asteroids[i].image.get_height())
             if ship_rect.colliderect(asteroid_rect):
-                print("TRUE")
                 self.has_exploded = True
                 return True
 

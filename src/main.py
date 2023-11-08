@@ -17,7 +17,7 @@ from Game import Game
 from Controller import Controller
 from View import View
 from Starship import Ship
-from Asteroids import Asteroids
+# from Asteroids import Asteroids
 
 def main():
     pygame.init()
@@ -39,6 +39,7 @@ def main():
         view.draw_everything()
         if Ship.is_hit_by(game.Ship, game.asteroid_field):
             game.game_over()
+            main()
 
 
 main()
