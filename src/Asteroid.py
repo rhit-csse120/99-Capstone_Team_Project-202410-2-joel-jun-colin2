@@ -4,7 +4,7 @@ import random
 class Asteroid:
     def __init__(self, screen: pygame.Surface):
         self.screen = screen
-        self.speed = random.randint(5, 13)
+        self.speed = random.randint(5, 11)
         self.image = pygame.image.load("../media/Asteroid_S.gif")
         self.x = screen.get_width()
         self.y = random.randint(0, screen.get_height())

@@ -13,7 +13,7 @@ class FuelCells:
         self.screen = screen
         self.fuelCells_list = []
         self.ship = ship
-        self.health = 50
+        self.health = 100
         self.clock = pygame.time.Clock()
         for k in range(random.randint(5, 7)):
             self.fuelCells_list.append(FuelCell(screen, 5))
@@ -39,7 +39,7 @@ class FuelCells:
             fuelCell = self.fuelCells_list[k]
             fuelCell.is_consumed(self.ship)
             if fuelCell.has_consumed:
-                self.health += 5
+                self.health += 10
         self.clock.tick(1000)
-        if self.clock.get_time() % 2:
-            self.health -= 0.1
+        if round(self.clock.get_time()) % 2:
+            self.health -= 0.15

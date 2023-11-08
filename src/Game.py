@@ -18,6 +18,7 @@ from Starship import Ship
 from FuelCells import FuelCells
 from FuelGauge import FuelGauge
 import sys
+from Enemy import Enemy
 
 # DONE: Put each class in its own module, using the same name for both.
 #  Then use statements like the following, but for YOUR classes in YOUR modules:
@@ -34,6 +35,7 @@ class Game:
         self.Ship = Ship(screen)
         self.fuelCells = FuelCells(screen, self.Ship)
         self.gauge = FuelGauge(screen, self.fuelCells)
+        self.enemy = Enemy(screen, self.Ship)
 
         # DONE: Store whatever YOUR game needs, perhaps something like this:
         #     self.missiles = Missiles(self.screen)
@@ -44,6 +46,8 @@ class Game:
         self.Ship.draw_self()
         self.fuelCells.draw()
         self.gauge.draw()
+        self.enemy.draw()
+
 
         """ Ask all the objects in the game to draw themselves. """
         # DONE: Use something like the following, but for objects in YOUR game:
@@ -77,6 +81,7 @@ class Game:
         self.gauge.update_fuel_level()
         self.fuelCells.remove_charged_cells()
         self.Ship.is_hit_by(self.asteroid_field)
+        self.enemy.move()
 
         """ All objects that do something at each cycle: ask them to do it. """
         # DONE: Use something like the following, but for objects in YOUR game:
