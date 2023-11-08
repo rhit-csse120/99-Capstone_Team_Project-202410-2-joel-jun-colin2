@@ -17,6 +17,7 @@ from Game import Game
 from Controller import Controller
 from View import View
 from Starship import Ship
+from FuelGauge import FuelGauge
 # from Asteroids import Asteroids
 
 def main():
@@ -27,6 +28,8 @@ def main():
     game = Game(screen)  # the Model
     view = View(screen, game)  # the View
     controller = Controller(game)  # the Controller
+    gauge = game.gauge
+
     time_count = 0
 
     frame_rate = 60  # DONE: Choose your own frame rate
@@ -37,7 +40,7 @@ def main():
         controller.get_and_handle_events()
         game.run_one_cycle()
         view.draw_everything()
-        if Ship.is_hit_by(game.Ship, game.asteroid_field):
+        if Ship.is_hit_by(game.Ship, game.asteroid_field) or gauge.fuel_level < 0:
             game.game_over()
             main()
 
