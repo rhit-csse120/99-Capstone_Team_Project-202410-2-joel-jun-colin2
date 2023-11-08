@@ -19,9 +19,22 @@ from View import View
 from Starship import Ship
 # from Asteroids import Asteroids
 
-def main():
+def start():
     pygame.init()
     pygame.display.set_caption("Jun's Space Odyssey")  # DONE: Put your own game name
+    screen = pygame.display.set_mode((1200, 650))  # DONE: Choose your own size
+    title_screen = pygame.image.load("../media/TitleScreen.png")
+    title_screen = pygame.transform.scale(title_screen, (screen.get_width(), screen.get_height()))
+    title_screen.blit(title_screen, (0, 0))
+    pygame.display.update()
+    """
+    while True:
+        pressed_keys = pygame.key.get_pressed()
+        if pressed_keys[pygame.K_RETURN]:
+            pass
+    """
+
+def main():
     screen = pygame.display.set_mode((1200, 650))  # DONE: Choose your own size
     clock = pygame.time.Clock()
     game = Game(screen)  # the Model
@@ -41,5 +54,5 @@ def main():
             game.game_over()
             main()
 
-
+start()
 main()
