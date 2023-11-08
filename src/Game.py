@@ -71,8 +71,8 @@ class Game:
         self.asteroids.move()
         self.asteroids.remove_asteroid()
         self.fuelCells.move()
-        self.fuelCells.remove_charged_cells()
         self.gauge.update_fuel_level()
+        self.fuelCells.remove_charged_cells()
         self.Ship.is_hit_by(self.asteroid_field)
 
         """ All objects that do something at each cycle: ask them to do it. """
