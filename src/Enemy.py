@@ -4,11 +4,11 @@ from Starship import Ship
 class Enemy:
     def __init__(self, screen: pygame.Surface, ship: Ship):
         self.screen = screen
-        self.image = pygame.image.load("../media/Starship.png")
+        self.image = pygame.image.load("../media/Asteroid_S.gif")
         self.x = screen.get_width()
         self.ship = ship
         self.y = 100
-        self.spawn_rate = random.randint(0, 10000)
+        self.spawn_rate = random.randint(0, 1000000)
 
     def draw(self):
         if self.spawn_rate == 1:
@@ -19,6 +19,8 @@ class Enemy:
             print(self.spawn_rate)
     def move(self):
         if self.spawn_rate == 1:
-            pass
+            self.x += -7
+            self.y = self.ship.y
+
 
 
