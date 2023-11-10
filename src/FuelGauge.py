@@ -46,5 +46,7 @@ class FuelGauge:
         self.screen.blit(self.text2, self.textRect2)
 
         self.timer -= self.dt
+        if self.timer <= 0:
+            self.timer = 0
         self.text3 = self.font3.render(str(round(self.timer)), True, (0, 255, 0, 255))
         self.screen.blit(self.text3, self.textRect3)
