@@ -66,7 +66,7 @@ def main():
         controller.get_and_handle_events()
         game.run_one_cycle()
         view.draw_everything()
-        if Ship.is_hit_by(game.Ship, game.asteroid_field) or gauge.fuel_level < 0:
+        if Ship.is_hit_by(game.Ship, game.asteroid_field, game.enemy) or gauge.fuel_level < 0:
             sound.stop()
             Ship.explode(game.Ship)
             game.game_over()
@@ -111,7 +111,7 @@ def main_2():
         controller.get_and_handle_events()
         game.run_two_cycle()
         view.draw_everything()
-        if Ship.is_hit_by(game.Ship, game.asteroid_field) or gauge.fuel_level < 0:
+        if Ship.is_hit_by(game.Ship, game.asteroid_field, game.enemy) or gauge.fuel_level < 0:
             sound.stop()
             Ship.explode(game.Ship)
             game.game_over()

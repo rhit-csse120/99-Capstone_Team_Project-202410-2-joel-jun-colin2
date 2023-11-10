@@ -49,7 +49,7 @@ class Ship:
             if ship_rect.colliderect(asteroid_rect):
                 self.has_exploded = True
                 return True
-        jun_rect = pygame.Rect(jun.x, jun.y, jun.image.get_width, jun.image.get_height())
+        jun_rect = pygame.Rect(jun.x, jun.y, jun.image.get_width(), jun.image.get_height())
         if ship_rect.colliderect(jun_rect):
             self.has_exploded = True
             return True
