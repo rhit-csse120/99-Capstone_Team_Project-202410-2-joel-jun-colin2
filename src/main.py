@@ -19,6 +19,7 @@ from View import View
 from Starship import Ship
 import sys
 import time
+from Enemy import Enemy
 from FuelGauge import FuelGauge
 # from Asteroids import Asteroids
 
@@ -50,20 +51,39 @@ def main():
     controller = Controller(game)  # the Controller
     gauge = game.gauge
     start_time = time.time()
-    time_count = 0
+    # time_count = 0
 
     frame_rate = 60  # DONE: Choose your own frame rate
 
     while True:
         clock.tick(frame_rate)
-        time_count += 1/60
+        # time_count += 1/60
         controller.get_and_handle_events()
         game.run_one_cycle()
         view.draw_everything()
         if Ship.is_hit_by(game.Ship, game.asteroid_field) or gauge.fuel_level < 0:
             game.game_over()
             main()
-        if time.time() > start_time + 60:
-            start()
+        if time.time() > start_time + 5:
+            main_2()
 
+def main_2():
+    screen = pygame.display.set_mode((1200, 650))  # DONE: Choose your own size
+    clock = pygame.time.Clock()
+    game = Game(screen)  # the Model
+    view = View(screen, game)  # the View
+    controller = Controller(game)  # the Controller
+    gauge = game.gauge
+    start_time = time.time()
+    frame_rate = 60  # DONE: Choose your own frame rate
+    while True:
+        clock.tick(frame_rate)
+        controller.get_and_handle_events()
+        game.run_two_cycle()
+        view.draw_everything()
+        if Ship.is_hit_by(game.Ship, game.asteroid_field) or gauge.fuel_level < 0:
+            game.game_over()
+            main()
+        if time.time() > start_time + 15:
+            start()
 start()
