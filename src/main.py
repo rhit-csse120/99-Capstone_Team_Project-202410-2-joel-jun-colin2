@@ -32,11 +32,14 @@ def start():
     screen.blit(title_screen, (0, 0))
     pygame.display.update()
     clock = pygame.time.Clock()
+    sound = pygame.mixer.Sound("../media/New Hope.ogg")
+    sound.play()
     while True:
         clock.tick(60)
         pressed_keys = pygame.key.get_pressed()
         for event in pygame.event.get():
             if pressed_keys[pygame.K_RETURN]:
+                sound.stop()
                 main()
             if event.type == pygame.QUIT:
                 sys.exit()
@@ -51,6 +54,8 @@ def main():
     controller = Controller(game)  # the Controller
     gauge = game.gauge
     start_time = time.time()
+    sound = pygame.mixer.Sound("../media/level1.ogg")
+    sound.play()
     # time_count = 0
 
     frame_rate = 60  # DONE: Choose your own frame rate
@@ -62,11 +67,16 @@ def main():
         game.run_one_cycle()
         view.draw_everything()
         if Ship.is_hit_by(game.Ship, game.asteroid_field) or gauge.fuel_level < 0:
+            sound.stop()
+            Ship.explode(game.Ship)
             game.game_over()
             main()
-        if time.time() > start_time + 60:
+        if time.time() > start_time + 10:
+            sound.stop()
             level_2()
 def level_2():
+    sound = pygame.mixer.Sound("../media/winner.ogg")
+    sound.play()
     pygame.init()
     pygame.display.set_caption("Jun's Space Odyssey")  # DONE: Put your own game name
     screen = pygame.display.set_mode((1200, 650))  # DONE: Choose your own size
@@ -80,11 +90,14 @@ def level_2():
         pressed_keys = pygame.key.get_pressed()
         for event in pygame.event.get():
             if pressed_keys[pygame.K_SPACE]:
+                sound.stop()
                 main_2()
             if event.type == pygame.QUIT:
                 sys.exit()
         pygame.display.update()
 def main_2():
+    sound = pygame.mixer.Sound("../media/level2.ogg")
+    sound.play()
     screen = pygame.display.set_mode((1200, 650))  # DONE: Choose your own size
     clock = pygame.time.Clock()
     game = Game(screen)  # the Model
@@ -99,11 +112,16 @@ def main_2():
         game.run_two_cycle()
         view.draw_everything()
         if Ship.is_hit_by(game.Ship, game.asteroid_field) or gauge.fuel_level < 0:
+            sound.stop()
+            Ship.explode(game.Ship)
             game.game_over()
             main()
-        if time.time() > start_time + 60:
+        if time.time() > start_time + 15:
+            sound.stop()
             winner_winner()
 def winner_winner():
+    sound = pygame.mixer.Sound("../media/winner.ogg")
+    sound.play()
     pygame.init()
     pygame.display.set_caption("Jun's Space Odyssey")  # DONE: Put your own game name
     screen = pygame.display.set_mode((1200, 650))  # DONE: Choose your own size
@@ -117,6 +135,7 @@ def winner_winner():
         pressed_keys = pygame.key.get_pressed()
         for event in pygame.event.get():
             if pressed_keys[pygame.K_SPACE]:
+                sound.stop()
                 start()
             if event.type == pygame.QUIT:
                 sys.exit()

@@ -51,6 +51,8 @@ class Game:
         #     self.fighter.draw()
 
     def game_over(self):
+        sound = pygame.mixer.Sound("../media/Game Over.ogg")
+        sound.play()
         clock = pygame.time.Clock()
         game_over_image = pygame.image.load("../media/Game_Over_Screen-1.png")
         size = (750, self.screen.get_height())
@@ -61,6 +63,7 @@ class Game:
             pressed_keys = pygame.key.get_pressed()
             for event in pygame.event.get():
                 if pressed_keys[pygame.K_SPACE]:
+                    sound.stop()
                     print("Restart!")
                     self.Ship.has_exploded = False
                     return
