@@ -18,7 +18,7 @@ class FuelCell:
         self.has_charged = False
         self.score = 100
         self.time = pygame.time.Clock()
-        # self.charge_sound = pygame.mixer.Sound("../media/pickup.mp3")
+        self.charge_sound = pygame.mixer.Sound("../media/pickup.mp3")
 
     def draw(self):
         self.screen.blit(self.image, (self.x, self.y))
@@ -28,7 +28,7 @@ class FuelCell:
         starship_rect = pygame.Rect(starship.x, starship.y, starship.width, starship.height)
         if fuel_rect.colliderect(starship_rect):
             self.has_consumed = True
-            # self.charge_sound.play()
+            self.charge_sound.play()
 
     def move(self):
         self.x -= self.speed
