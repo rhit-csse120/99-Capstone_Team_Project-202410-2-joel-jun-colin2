@@ -27,16 +27,13 @@ from Enemy import Enemy
 
 class Game:
     def __init__(self, screen: pygame.Surface):
-        # self.asteroid_field = Asteroids(screen).list_of_asteroids
         self.screen = screen
-        # self.asteroid = Asteroid(screen)
         self.asteroids = Asteroids(screen)
         self.asteroid_field = self.asteroids.list_of_asteroids
         self.Ship = Ship(screen)
         self.fuelCells = FuelCells(screen, self.Ship)
         self.gauge = FuelGauge(screen, self.fuelCells)
         self.enemy = Enemy(screen, self.Ship)
-
         # DONE: Store whatever YOUR game needs, perhaps something like this:
         #     self.missiles = Missiles(self.screen)
         #     self.fighter = Fighter(self.screen, self.missiles)
@@ -81,9 +78,16 @@ class Game:
         self.gauge.update_fuel_level()
         self.fuelCells.remove_charged_cells()
         self.Ship.is_hit_by(self.asteroid_field)
-        self.enemy.move()
 
         """ All objects that do something at each cycle: ask them to do it. """
         # DONE: Use something like the following, but for objects in YOUR game:
         #     self.missiles.move()
         #     self.missiles.handle_explosions(self.enemies)
+    def run_two_cycle(self):
+        self.asteroids.move()
+        self.asteroids.remove_asteroid()
+        self.fuelCells.move()
+        self.gauge.update_fuel_level()
+        self.fuelCells.remove_charged_cells()
+        self.Ship.is_hit_by(self.asteroid_field)
+        self.enemy.move()
