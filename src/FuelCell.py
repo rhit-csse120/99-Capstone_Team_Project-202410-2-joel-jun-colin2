@@ -5,8 +5,8 @@ import random
 class FuelCell:
     def __init__(self, screen, speed):
         self.screen = screen
-        self.image = pygame.image.load("../media/FuelCell.gif")
-        size = (55, 55)
+        self.image = pygame.image.load("../media/fuelcell1.png")
+        size = (40, 60)
         self.image = pygame.transform.scale(self.image, size)
         self.width = self.image.get_width()
         self.height = self.image.get_height()

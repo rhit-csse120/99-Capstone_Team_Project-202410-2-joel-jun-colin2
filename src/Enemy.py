@@ -17,8 +17,11 @@ class Enemy:
 
 
     def move(self):
+        sound = pygame.mixer.Sound("..//media/mixkit-synthetic-sci-fi-wobble-278.wav")
         if time.time() >= self.stored_time + self.spawn_time:
             self.x -= self.x_speed
+            sound.play()
+
             if self.y < self.ship.y:
                 self.y += 2
             if self.y > self.ship.y:
