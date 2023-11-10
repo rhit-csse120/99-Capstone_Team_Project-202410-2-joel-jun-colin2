@@ -43,4 +43,4 @@ class FuelCells:
                     self.health += 10
         self.clock.tick(1000)
         if round(self.clock.get_time()) % 2:
-            self.health -= 0.15
+            self.health -= 0.2
