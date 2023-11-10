@@ -40,7 +40,7 @@ class Ship:
         if self.y < self.screen.get_height() - self.image.get_height():
             self.y += self.speed
 
-    def is_hit_by(self, list_asteroids):
+    def is_hit_by(self, list_asteroids, jun):
         # Function will return True if an asteroid and the ship's rectangle collide
         ship_rect = pygame.Rect(self.x, self.y, self.image.get_width(), self.image.get_height())
         for i in range(len(list_asteroids)):
@@ -49,6 +49,10 @@ class Ship:
             if ship_rect.colliderect(asteroid_rect):
                 self.has_exploded = True
                 return True
+        jun_rect = pygame.Rect(jun.image.x, jun.image.y, jun.image.get_width, jun.image.get_height())
+        if ship_rect.colliderect(jun_rect):
+            self.has_exploded = True
+            return True
 
     def explode(self):
         # Game over
