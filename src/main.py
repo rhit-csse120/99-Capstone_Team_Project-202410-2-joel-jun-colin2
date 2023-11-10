@@ -71,7 +71,7 @@ def main():
             Ship.explode(game.Ship)
             game.game_over()
             main()
-        if time.time() > start_time + 10:
+        if time.time() > start_time + 60:
             sound.stop()
             level_2()
 def level_2():
@@ -116,7 +116,7 @@ def main_2():
             Ship.explode(game.Ship)
             game.game_over()
             main()
-        if time.time() > start_time + 15:
+        if time.time() > start_time + 60:
             sound.stop()
             winner_winner()
 def winner_winner():
