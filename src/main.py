@@ -17,6 +17,8 @@ from Game import Game
 from Controller import Controller
 from View import View
 from Starship import Ship
+import sys
+import time
 from FuelGauge import FuelGauge
 # from Asteroids import Asteroids
 
@@ -26,14 +28,19 @@ def start():
     screen = pygame.display.set_mode((1200, 650))  # DONE: Choose your own size
     title_screen = pygame.image.load("../media/TitleScreen.png")
     title_screen = pygame.transform.scale(title_screen, (screen.get_width(), screen.get_height()))
-    title_screen.blit(title_screen, (0, 0))
+    screen.blit(title_screen, (0, 0))
     pygame.display.update()
-    """
+    clock = pygame.time.Clock()
     while True:
+        clock.tick(60)
         pressed_keys = pygame.key.get_pressed()
-        if pressed_keys[pygame.K_RETURN]:
-            pass
-    """
+        for event in pygame.event.get():
+            if pressed_keys[pygame.K_RETURN]:
+                main()
+            if event.type == pygame.QUIT:
+                sys.exit()
+        pygame.display.update()
+
 
 def main():
     screen = pygame.display.set_mode((1200, 650))  # DONE: Choose your own size
@@ -42,7 +49,7 @@ def main():
     view = View(screen, game)  # the View
     controller = Controller(game)  # the Controller
     gauge = game.gauge
-
+    start_time = time.time()
     time_count = 0
 
     frame_rate = 60  # DONE: Choose your own frame rate
@@ -56,6 +63,7 @@ def main():
         if Ship.is_hit_by(game.Ship, game.asteroid_field) or gauge.fuel_level < 0:
             game.game_over()
             main()
+        if time.time() > start_time + 60:
+            start()
 
 start()
-main()
