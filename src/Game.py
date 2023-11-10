@@ -82,7 +82,7 @@ class Game:
         self.fuelCells.move()
         self.gauge.update_fuel_level()
         self.fuelCells.remove_charged_cells()
-        self.Ship.is_hit_by(self.asteroid_field)
+        self.Ship.is_hit_by(self.asteroid_field, self.enemy)
 
         """ All objects that do something at each cycle: ask them to do it. """
         # DONE: Use something like the following, but for objects in YOUR game:
@@ -94,5 +94,5 @@ class Game:
         self.fuelCells.move()
         self.gauge.update_fuel_level()
         self.fuelCells.remove_charged_cells()
-        self.Ship.is_hit_by(self.asteroid_field)
+        self.Ship.is_hit_by(self.asteroid_field, self.enemy)
         self.enemy.move()
