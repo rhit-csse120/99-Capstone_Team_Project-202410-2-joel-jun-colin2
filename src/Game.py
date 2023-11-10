@@ -57,8 +57,6 @@ class Game:
         game_over_image = pygame.image.load("../media/Game_Over_Screen-1.png")
         size = (750, self.screen.get_height())
         game_over_image = pygame.transform.scale(game_over_image, size)
-        game_over_sound = pygame.mixer.Sound("../media/Game Over.ogg")
-        game_over_sound.play()
 
         while True:
             clock.tick(60)
