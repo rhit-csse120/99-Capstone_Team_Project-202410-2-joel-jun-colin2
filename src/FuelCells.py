@@ -39,7 +39,8 @@ class FuelCells:
             fuelCell = self.fuelCells_list[k]
             fuelCell.is_consumed(self.ship)
             if fuelCell.has_consumed:
-                self.health += 10
+                if self.health + 10 < 101:
+                    self.health += 10
         self.clock.tick(1000)
         if round(self.clock.get_time()) % 2:
             self.health -= 0.15
