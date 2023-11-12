@@ -15,9 +15,6 @@ class FuelCell:
         self.speed = speed
         self.is_off_the_screen = False
         self.has_consumed = False
-        self.has_charged = False
-        self.score = 100
-        self.time = pygame.time.Clock()
         self.charge_sound = pygame.mixer.Sound("../media/pickup.mp3")
 
     def draw(self):

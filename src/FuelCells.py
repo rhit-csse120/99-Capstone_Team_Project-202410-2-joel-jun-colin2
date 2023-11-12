@@ -1,11 +1,6 @@
 import pygame
 import random
-import time
-
-from pygame.time import set_timer
-
 from FuelCell import FuelCell
-from Starship import Ship
 
 
 class FuelCells:

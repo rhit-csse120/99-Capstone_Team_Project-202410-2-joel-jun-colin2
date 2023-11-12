@@ -1,8 +1,5 @@
 import pygame
-from FuelCells import FuelCells
 from Starship import Ship
-import time
-import datetime
 
 
 class FuelGauge:
@@ -12,6 +9,7 @@ class FuelGauge:
         self.ship = Ship(screen)
         self.screen = screen
         self.fuelCells_list = fuel_cells
+
         self.fuel_level = self.fuelCells_list.health
         self.fuel_level = round(self.fuel_level)
 
