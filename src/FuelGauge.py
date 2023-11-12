@@ -1,8 +1,5 @@
 import pygame
-from FuelCells import FuelCells
 from Starship import Ship
-import time
-import datetime
 
 
 class FuelGauge:
