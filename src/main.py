@@ -25,7 +25,7 @@ from FuelGauge import FuelGauge
 
 def start():
     pygame.init()
-    pygame.display.set_caption("Jun's Space Odyssey")  # DONE: Put your own game name
+    pygame.display.set_caption("Space Odyssey")  # DONE: Put your own game name
     screen = pygame.display.set_mode((1200, 650))  # DONE: Choose your own size
     title_screen = pygame.image.load("../media/TitleScreen.png")
     title_screen = pygame.transform.scale(title_screen, (screen.get_width(), screen.get_height()))
@@ -78,7 +78,7 @@ def level_2():
     sound = pygame.mixer.Sound("../media/winner.ogg")
     sound.play()
     pygame.init()
-    pygame.display.set_caption("Jun's Space Odyssey")  # DONE: Put your own game name
+    pygame.display.set_caption("Space Odyssey")  # DONE: Put your own game name
     screen = pygame.display.set_mode((1200, 650))  # DONE: Choose your own size
     title_screen = pygame.image.load("../media/lvl2.png")
     title_screen = pygame.transform.scale(title_screen, (screen.get_width(), screen.get_height()))
@@ -123,7 +123,7 @@ def winner_winner():
     sound = pygame.mixer.Sound("../media/winner.ogg")
     sound.play()
     pygame.init()
-    pygame.display.set_caption("Jun's Space Odyssey")  # DONE: Put your own game name
+    pygame.display.set_caption("Space Odyssey")  # DONE: Put your own game name
     screen = pygame.display.set_mode((1200, 650))  # DONE: Choose your own size
     title_screen = pygame.image.load("../media/gamewin.png")
     title_screen = pygame.transform.scale(title_screen, (screen.get_width(), screen.get_height()))
